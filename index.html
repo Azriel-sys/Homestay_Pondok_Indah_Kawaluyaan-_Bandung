@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homestay Pondok Indah Kawaluyaan - Bandung</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Animate CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      :root {
+        --cream: #f5f5dc;
+        --soft-green: #d4edda;
+        --white: #ffffff;
+        --dark-green: #155724;
+        --light-brown: #e6d2b5;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--cream);
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        background-color: var(--soft-green);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        padding: 10px 0;
+      }
+
+      .navbar.scrolled {
+        padding: 8px 0;
+        background-color: rgba(212, 237, 218, 0.95);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        color: var(--dark-green) !important;
+      }
+
+      .logo {
+        height: 50px;
+        width: auto;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+
+      .brand-text {
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .brand-tagline {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: var(--dark-green);
+        opacity: 0.8;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        color: var(--dark-green) !important;
+        font-weight: 500;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--dark-green);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover:after {
+        width: 100%;
+      }
+
+      .hero-slider {
+        height: 85vh;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .carousel-item {
+        height: 85vh;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .carousel-caption {
+        background: rgba(245, 245, 220, 0.8);
+        border-radius: 10px;
+        padding: 30px;
+        bottom: 30%;
+        left: 10%;
+        right: 10%;
+        text-align: left;
+        color: var(--dark-green);
+      }
+
+      .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        color: var(--dark-green);
+        position: relative;
+        padding-bottom: 15px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--dark-green);
+      }
+
+      .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-img-top {
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+
+      .btn-primary {
+        background-color: var(--dark-green);
+        border-color: var(--dark-green);
+        padding: 10px 25px;
+        border-radius: 30px;
+        transition: all 0.3s;
+      }
+
+      .btn-primary:hover {
+        background-color: #0d3b1e;
+        border-color: #0d3b1e;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-whatsapp {
+        background-color: #25d366;
+        color: white;
+        border-radius: 30px;
+        padding: 12px 30px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .btn-whatsapp:hover {
+        background-color: #128c7e;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        background-color: var(--soft-green);
+        color: var(--dark-green);
+        padding: 50px 0 20px;
+      }
+
+      .social-icons a {
+        color: var(--dark-green);
+        margin-right: 15px;
+        font-size: 20px;
+        transition: all 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #0d3b1e;
+        transform: translateY(-3px);
+      }
+
+      .form-section {
+        background-color: var(--white);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .form-section:hover {
+        transform: translateY(-5px);
+      }
+
+      .promo-text {
+        background-color: var(--soft-green);
+        padding: 20px;
+        border-radius: 10px;
+        font-style: italic;
+        text-align: center;
+        margin: 30px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .promo-text:before {
+        content: "\f10d";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        font-size: 2rem;
+        opacity: 0.2;
+      }
+
+      .promo-text:after {
+        content: "\f10e";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        font-size: 2rem;
+        opacity: 0.2;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--dark-green);
+        margin-bottom: 15px;
+      }
+
+      .feature-box {
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 10px;
+        transition: all 0.3s;
+        background-color: var(--white);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        height: 100%;
+      }
+
+      .feature-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-card {
+        background-color: var(--white);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin: 15px;
+        position: relative;
+      }
+
+      .testimonial-card:before {
+        content: "\f10d";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        font-size: 1.5rem;
+        color: var(--dark-green);
+        opacity: 0.3;
+      }
+
+      .testimonial-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+        border: 3px solid var(--soft-green);
+      }
+
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0% {
+          transform: translate(0, 0px);
+        }
+        50% {
+          transform: translate(0, 15px);
+        }
+        100% {
+          transform: translate(0, -0px);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .room-highlight {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .room-highlight img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .room-highlight:hover img {
+        transform: scale(1.05);
+      }
+
+      .room-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        color: white;
+        padding: 30px;
+        transform: translateY(100px);
+        transition: transform 0.5s;
+      }
+
+      .room-highlight:hover .room-overlay {
+        transform: translateY(0);
+      }
+
+      .stats-box {
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 10px;
+        background-color: var(--white);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+      }
+
+      .stats-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .stats-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark-green);
+        margin-bottom: 10px;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--dark-green);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 1000;
+      }
+
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background-color: #0d3b1e;
+        transform: translateY(-5px);
+      }
+
+      .calculation-box {
+        background-color: var(--soft-green);
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        border-left: 5px solid var(--dark-green);
+      }
+
+      .calculation-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+      }
+
+      .calculation-total {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: var(--dark-green);
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 2px solid var(--dark-green);
+      }
+
+      .price-highlight {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--dark-green);
+      }
+
+      .facility-list {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .facility-list li {
+        padding: 5px 0;
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .facility-list li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--dark-green);
+      }
+
+      .gallery-img {
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .gallery-img:hover {
+        transform: scale(1.05);
+      }
+
+      .note-box {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .warning-box {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .payment-timer {
+        background-color: #d1ecf1;
+        border: 1px solid #bee5eb;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .timer-countdown {
+        font-size: 1.5rem;
+        color: #0c5460;
+        margin: 10px 0;
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .carousel-caption {
+          bottom: 20%;
+          padding: 20px;
+        }
+
+        .brand-text {
+          font-size: 1.1rem;
+        }
+
+        .logo {
+          height: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <!-- Ganti src dengan path logo hotel Anda -->
+          <img
+            src="assets/01.png"
+            alt="Logo Pondok Indah Kawaluyaan"
+            class="logo"
+          />
+          <div>
+            <span class="brand-text">Pondok Indah Kawaluyaan</span>
+            <div class="brand-tagline">Damai, Nyaman, Berkesan</div>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kamar">Kamar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#fasilitas">Fasilitas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#galeri">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimoni">Testimoni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pesan">Pesan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kontak">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section id="home" class="hero-slider">
+      <div
+        id="heroCarousel"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="2"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div
+            class="carousel-item active"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            "
+          >
+            <div class="carousel-caption animate__animated animate__fadeInUp">
+              <h1 class="hero-title">
+                Selamat Datang di Pondok Indah Kawaluyaan
+              </h1>
+              <p class="hero-subtitle">
+                Tempat tinggal nyaman dengan sistem sewa per bulan di Bandung
+              </p>
+              <a href="#pesan" class="btn btn-primary btn-lg">Pesan Sekarang</a>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            "
+          >
+            <div class="carousel-caption animate__animated animate__fadeInUp">
+              <h1 class="hero-title">
+                Fasilitas Lengkap untuk Kenyamanan Anda
+              </h1>
+              <p class="hero-subtitle">
+                Dengan berbagai pilihan kamar sesuai kebutuhan dan budget
+              </p>
+              <a href="#kamar" class="btn btn-primary btn-lg">Lihat Kamar</a>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1582582621959-48d27397dc69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            "
+          >
+            <div class="carousel-caption animate__animated animate__fadeInUp">
+              <h1 class="hero-title">Lokasi Strategis di Kota Bandung</h1>
+              <p class="hero-subtitle">
+                Mudah dijangkau dan dekat dengan berbagai fasilitas umum
+              </p>
+              <a href="#kontak" class="btn btn-primary btn-lg">Lihat Lokasi</a>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="py-5">
+      <div class="container">
+        <h2 class="section-title fade-in">Tentang Kami</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6 fade-in">
+            <p>
+              Homestay Pondok Indah Kawaluyaan terletak di lokasi yang strategis
+              di Bandung, memberikan akses mudah ke berbagai destinasi wisata
+              dan pusat perbelanjaan. Dengan suasana yang tenang dan asri,
+              homestay kami menjadi pilihan tepat bagi Anda yang mencari
+              ketenangan di tengah kota.
+            </p>
+            <p>
+              Kami menyediakan berbagai fasilitas yang akan membuat penginapan
+              Anda lebih nyaman, termasuk kamar yang bersih dan rapi, area
+              parkir yang luas, serta akses Wi-Fi gratis.
+            </p>
+            <div class="row mt-4">
+              <div class="col-6">
+                <div class="stats-box">
+                  <div class="stats-number">5+</div>
+                  <div>Tahun Pengalaman</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stats-box">
+                  <div class="stats-number">500+</div>
+                  <div>Tamou Puas</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 fade-in">
+            <div class="room-highlight">
+              <img
+                src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Tentang Kami"
+              />
+              <div class="room-overlay">
+                <h3>Suasana Nyaman dan Tenang</h3>
+                <p>Nikmati ketenangan di tengah kota Bandung</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fasilitas -->
+    <section id="fasilitas" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title fade-in">Fasilitas Kami</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4 fade-in">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-wifi"></i>
+              </div>
+              <h4>Wi-Fi Gratis</h4>
+              <p>Akses internet cepat dan stabil di seluruh area homestay</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-parking"></i>
+              </div>
+              <h4>Parkir Luas</h4>
+              <p>Area parkir yang aman dan cukup untuk kendaraan tamu</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <h4>Dapur Bersama</h4>
+              <p>Fasilitas dapur lengkap untuk memasak kebutuhan pribadi</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-tv"></i>
+              </div>
+              <h4>TV & Hiburan</h4>
+              <p>TV dengan channel lengkap untuk hiburan selama menginap</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-snowflake"></i>
+              </div>
+              <h4>AC Nyaman</h4>
+              <p>Pendingin ruangan di setiap kamar untuk kenyamanan optimal</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h4>Keamanan 24 Jam</h4>
+              <p>Sistem keamanan terjamin untuk ketenangan selama menginap</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daftar Kamar -->
+    <section id="kamar" class="py-5">
+      <div class="container">
+        <h2 class="section-title fade-in">Pilihan Kamar</h2>
+        <div class="promo-text fade-in">
+          <p class="mb-0">
+            Nikmati kenyamanan tinggal di Homestay Pondok Indah Kawaluyaan
+            dengan sistem sewa per bulan yang terjangkau.
+          </p>
+        </div>
+        <div class="note-box fade-in">
+          <p class="mb-0">
+            <strong>Catatan:</strong> Harga Kamar Menyesuaikan Fasilitas dan
+            akan berubah-ubah sesuai ketentuan yang berlaku. Reservasi dapat
+            dilakukan langsung di resepsionis hotel.
+          </p>
+        </div>
+        <div class="row">
+          <!-- Kamar Standar Non-AC -->
+          <div class="col-md-6 col-lg-3 mb-4 fade-in">
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top"
+                alt="Kamar Standar Non-AC"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kamar Standar Non-AC</h5>
+                <ul class="facility-list">
+                  <li>Kamar mandi dalam</li>
+                  <li>TV</li>
+                  <li>Kasur</li>
+                  <li>Lemari</li>
+                  <li>Parkir</li>
+                  <li>Dapur dalam</li>
+                  <li>Keamanan 24 jam</li>
+                </ul>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <p class="fw-bold mb-0 price-highlight">
+                    Rp 1,600,000 / bulan
+                  </p>
+                  <a href="#pesan" class="btn btn-primary">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kamar Standar AC -->
+          <div class="col-md-6 col-lg-3 mb-4 fade-in">
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top"
+                alt="Kamar Standar AC"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kamar Standar AC</h5>
+                <ul class="facility-list">
+                  <li>AC</li>
+                  <li>Kasur</li>
+                  <li>Kamar mandi dalam</li>
+                  <li>Water Heater</li>
+                  <li>TV</li>
+                  <li>Lemari</li>
+                  <li>Parkir</li>
+                  <li>Keamanan 24 jam</li>
+                </ul>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <p class="fw-bold mb-0 price-highlight">
+                    Rp 1,700,000 / bulan
+                  </p>
+                  <a href="#pesan" class="btn btn-primary">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kamar Standar AC dengan Garasi -->
+          <div class="col-md-6 col-lg-3 mb-4 fade-in">
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top"
+                alt="Kamar Standar AC dengan Garasi"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kamar Standar AC</h5>
+                <ul class="facility-list">
+                  <li>Kamar mandi dalam</li>
+                  <li>AC</li>
+                  <li>Lemari</li>
+                  <li>Kasur</li>
+                  <li>TV</li>
+                  <li>Dapur Dalam</li>
+                  <li>Garasi Khusus Mobil</li>
+                </ul>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <p class="fw-bold mb-0 price-highlight">
+                    Rp 2,000,000 / bulan
+                  </p>
+                  <a href="#pesan" class="btn btn-primary">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kamar Standar Kosongan -->
+          <div class="col-md-6 col-lg-3 mb-4 fade-in">
+            <div class="card">
+              <img
+                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                class="card-img-top"
+                alt="Kamar Standar Kosongan"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kamar Standar</h5>
+                <ul class="facility-list">
+                  <li>Kamar Mandi dalam</li>
+                  <li>Keamanan 24 jam</li>
+                  <li>Kosongan</li>
+                </ul>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <p class="fw-bold mb-0 price-highlight">
+                    Rp 1,000,000 / bulan
+                  </p>
+                  <a href="#pesan" class="btn btn-primary">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title fade-in">Galeri Foto</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4 fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              class="gallery-img w-100"
+              alt="Galeri 1"
+            />
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              class="gallery-img w-100"
+              alt="Galeri 2"
+            />
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1582582621959-48d27397dc69?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              class="gallery-img w-100"
+              alt="Galeri 3"
+            />
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              class="gallery-img w-100"
+              alt="Galeri 4"
+            />
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              class="gallery-img w-100"
+              alt="Galeri 5"
+            />
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              class="gallery-img w-100"
+              alt="Galeri 6"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="py-5">
+      <div class="container">
+        <h2 class="section-title fade-in">Testimoni Tamu</h2>
+        <div class="row">
+          <div class="col-md-4 fade-in">
+            <div class="testimonial-card">
+              <div class="d-flex align-items-center mb-3">
+                <img
+                  src="https://randomuser.me/api/portraits/women/32.jpg"
+                  class="testimonial-img"
+                  alt="Testimoni 1"
+                />
+                <div>
+                  <h5 class="mb-0">Sari Dewi</h5>
+                  <small>Bandung, 2 Bulan Lalu</small>
+                </div>
+              </div>
+              <p class="mb-0">
+                "Tinggal di sini sudah 6 bulan, sangat nyaman dan pelayanan
+                memuaskan. Lokasi strategis dekat kampus dan pusat
+                perbelanjaan."
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 fade-in">
+            <div class="testimonial-card">
+              <div class="d-flex align-items-center mb-3">
+                <img
+                  src="https://randomuser.me/api/portraits/men/54.jpg"
+                  class="testimonial-img"
+                  alt="Testimoni 2"
+                />
+                <div>
+                  <h5 class="mb-0">Rizki Pratama</h5>
+                  <small>Jakarta, 3 Bulan Lalu</small>
+                </div>
+              </div>
+              <p class="mb-0">
+                "Homestay yang nyaman dengan harga terjangkau. Fasilitas lengkap
+                dan suasana tenang. Recommended untuk yang cari kos di Bandung!"
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 fade-in">
+            <div class="testimonial-card">
+              <div class="d-flex align-items-center mb-3">
+                <img
+                  src="https://randomuser.me/api/portraits/women/68.jpg"
+                  class="testimonial-img"
+                  alt="Testimoni 3"
+                />
+                <div>
+                  <h5 class="mb-0">Maya Sari</h5>
+                  <small>Surabaya, 1 Bulan Lalu</small>
+                </div>
+              </div>
+              <p class="mb-0">
+                "Kamar bersih dan fasilitas lengkap. Pemiliknya ramah dan
+                responsif. Harga sesuai dengan fasilitas yang diberikan."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulir Pemesanan -->
+    <section id="pesan" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title fade-in">Formulir Pemesanan</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="form-section fade-in">
+              <form id="bookingForm">
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="nama" required />
+                </div>
+                <div class="mb-3">
+                  <label for="whatsapp" class="form-label"
+                    >Nomor WhatsApp</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="whatsapp"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="checkin" class="form-label"
+                    >Tanggal Mulai Sewa</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="checkin"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="durasi" class="form-label"
+                    >Durasi Sewa (Bulan)</label
+                  >
+                  <select class="form-select" id="durasi" required>
+                    <option value="" selected disabled>Pilih Durasi</option>
+                    <option value="1">1 Bulan</option>
+                    <option value="2">2 Bulan</option>
+                    <option value="3">3 Bulan</option>
+                    <option value="4">4 Bulan</option>
+                    <option value="5">5 Bulan</option>
+                    <option value="6">6 Bulan</option>
+                    <option value="7">7 Bulan</option>
+                    <option value="8">8 Bulan</option>
+                    <option value="9">9 Bulan</option>
+                    <option value="10">10 Bulan</option>
+                    <option value="11">11 Bulan</option>
+                    <option value="12">12 Bulan</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="tipeKamar" class="form-label">Tipe Kamar</label>
+                  <select class="form-select" id="tipeKamar" required>
+                    <option value="" selected disabled>Pilih Tipe Kamar</option>
+                    <option value="Kamar Standar Non-AC" data-price="1600000">
+                      Kamar Standar Non-AC - Rp 1,600,000/bulan
+                    </option>
+                    <option value="Kamar Standar AC" data-price="1700000">
+                      Kamar Standar AC - Rp 1,700,000/bulan
+                    </option>
+                    <option
+                      value="Kamar Standar AC dengan Garasi"
+                      data-price="2000000"
+                    >
+                      Kamar Standar AC dengan Garasi - Rp 2,000,000/bulan
+                    </option>
+                    <option value="Kamar Standar Kosongan" data-price="1000000">
+                      Kamar Standar Kosongan - Rp 1,000,000/bulan
+                    </option>
+                  </select>
+                </div>
+
+                <!-- Kalkulator Biaya -->
+                <div
+                  id="calculationResult"
+                  class="calculation-box"
+                  style="display: none"
+                >
+                  <h5 class="mb-3">Rincian Biaya:</h5>
+                  <div class="calculation-item">
+                    <span>Harga per bulan:</span>
+                    <span id="pricePerMonth">Rp 0</span>
+                  </div>
+                  <div class="calculation-item">
+                    <span>Durasi sewa:</span>
+                    <span id="monthsCount">0 bulan</span>
+                  </div>
+                  <div class="calculation-item">
+                    <span>DP (30%):</span>
+                    <span id="dpAmount">Rp 0</span>
+                  </div>
+                  <div class="calculation-total">
+                    <span>Total biaya:</span>
+                    <span id="totalCost" class="price-highlight">Rp 0</span>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted small">
+                    *DP harus dibayar untuk mengkonfirmasi pemesanan
+                  </p>
+                </div>
+
+                <!-- Peringatan Waktu Pembayaran -->
+                <div class="warning-box mt-4">
+                  <h6>
+                    <i class="fas fa-exclamation-triangle me-2"></i>PENTING:
+                    Batas Waktu Pembayaran DP
+                  </h6>
+                  <p class="mb-2">
+                    Setelah melakukan pemesanan, Anda memiliki waktu
+                    <strong>10 MENIT</strong> untuk melakukan transfer DP dan
+                    mengirimkan bukti pembayaran via WhatsApp.
+                  </p>
+                  <p class="mb-0">
+                    Jika bukti pembayaran tidak diterima dalam waktu 10 menit,
+                    pemesanan akan <strong>DIBATALKAN OTOMATIS</strong>.
+                  </p>
+                </div>
+
+                <!-- Timer Countdown (akan ditampilkan setelah pemesanan) -->
+                <div
+                  id="paymentTimer"
+                  class="payment-timer"
+                  style="display: none"
+                >
+                  <h6>
+                    <i class="fas fa-clock me-2"></i>Sisa Waktu Pembayaran DP
+                  </h6>
+                  <div class="timer-countdown" id="timerCountdown">10:00</div>
+                  <p class="mb-0">
+                    Segera lakukan transfer dan kirim bukti pembayaran via
+                    WhatsApp
+                  </p>
+                </div>
+
+                <div class="alert alert-info mt-4">
+                  <h6>Informasi Pembayaran:</h6>
+                  <p class="mb-2">
+                    <strong>Tidak menerima pembayaran tunai.</strong>
+                  </p>
+                  <p class="mb-0">
+                    Pembayaran hanya menggunakan Rekening:<br />
+                    <strong
+                      >Bank BNI (Bank Negara Indonesia) 3010196012 (Tati
+                      Sumiarti)</strong
+                    >
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  class="btn btn-whatsapp w-100 mt-3"
+                  id="btnWhatsApp"
+                >
+                  <i class="fab fa-whatsapp me-2"></i>Konfirmasi Pemesanan via
+                  WhatsApp
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4 fade-in">
+            <h5>Homestay Pondok Indah Kawaluyaan</h5>
+            <p>
+              📍 Jl. Kawaluyaan Raya No. 39, Jatisari, Kec. Buah Batu, Kota
+              Bandung, Kode Pos 40286.
+            </p>
+            <p><i class="fas fa-phone me-2"></i>082114241733 (Aziz - Admin)</p>
+            <p>
+              <i class="fas fa-envelope me-2"></i>info@pondokindahkawaluyaan.com
+            </p>
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <h5>Informasi</h5>
+            <p>Sistem sewa per bulan</p>
+            <p>Check-in: Setelah pembayaran</p>
+            <p>Customer Service: 24 Jam</p>
+          </div>
+          <div class="col-md-4 mb-4 fade-in">
+            <h5>Ikuti Kami</h5>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="mt-3">
+              <a
+                href="https://maps.google.com/?q=Jl.+Kawaluyaan+Raya+No.+39,+Jatisari,+Kec.+Buah+Batu,+Kota+Bandung"
+                target="_blank"
+                class="btn btn-outline-light"
+              >
+                <i class="fas fa-map-marker-alt me-2"></i>Lihat di Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="text-center">
+          <p>
+            &copy; 2023 Homestay Pondok Indah Kawaluyaan. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        const backToTop = document.querySelector(".back-to-top");
+
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+          backToTop.classList.add("active");
+        } else {
+          navbar.classList.remove("scrolled");
+          backToTop.classList.remove("active");
+        }
+      });
+
+      // Back to top button
+      document
+        .querySelector(".back-to-top")
+        .addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+      // Fade in animation on scroll
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      const fadeInOnScroll = function () {
+        fadeElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add("visible");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", fadeInOnScroll);
+      // Initial check in case elements are already in view
+      fadeInOnScroll();
+
+      // Format angka ke format Rupiah
+      function formatRupiah(angka) {
+        return new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(angka);
+      }
+
+      // Fungsi untuk menghitung dan menampilkan biaya
+      function calculateCost() {
+        const durasi = parseInt(document.getElementById("durasi").value);
+        const roomType = document.getElementById("tipeKamar");
+        const selectedOption = roomType.options[roomType.selectedIndex];
+        const pricePerMonth = selectedOption
+          ? parseInt(selectedOption.getAttribute("data-price"))
+          : 0;
+
+        const calculationResult = document.getElementById("calculationResult");
+
+        // Validasi input
+        if (!durasi || !pricePerMonth) {
+          calculationResult.style.display = "none";
+          return;
+        }
+
+        // Hitung total biaya
+        const totalCost = durasi * pricePerMonth;
+
+        // Hitung DP (30%)
+        const dpAmount = Math.ceil(totalCost * 0.3);
+
+        // Update tampilan
+        document.getElementById("pricePerMonth").textContent =
+          formatRupiah(pricePerMonth);
+        document.getElementById("monthsCount").textContent = `${durasi} bulan`;
+        document.getElementById("totalCost").textContent =
+          formatRupiah(totalCost);
+        document.getElementById("dpAmount").textContent =
+          formatRupiah(dpAmount);
+
+        // Tampilkan hasil perhitungan
+        calculationResult.style.display = "block";
+      }
+
+      // Event listeners untuk kalkulator biaya
+      document
+        .getElementById("durasi")
+        .addEventListener("change", calculateCost);
+      document
+        .getElementById("tipeKamar")
+        .addEventListener("change", calculateCost);
+
+      // Set tanggal minimum untuk check-in
+      const today = new Date().toISOString().split("T")[0];
+      document.getElementById("checkin").setAttribute("min", today);
+
+      // Timer untuk pembayaran DP
+      let paymentTimer;
+      let timeLeft = 600; // 10 menit dalam detik
+
+      function startPaymentTimer() {
+        const timerDisplay = document.getElementById("timerCountdown");
+        const paymentTimerSection = document.getElementById("paymentTimer");
+
+        paymentTimerSection.style.display = "block";
+
+        paymentTimer = setInterval(function () {
+          const minutes = Math.floor(timeLeft / 60);
+          const seconds = timeLeft % 60;
+
+          timerDisplay.textContent = `${minutes
+            .toString()
+            .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+          if (timeLeft <= 0) {
+            clearInterval(paymentTimer);
+            timerDisplay.textContent = "00:00";
+            alert(
+              "Waktu pembayaran DP telah habis! Pemesanan Anda dibatalkan. Silakan lakukan pemesanan ulang."
+            );
+            paymentTimerSection.style.display = "none";
+            // Reset timer untuk pemesanan berikutnya
+            timeLeft = 600;
+          } else {
+            timeLeft--;
+          }
+        }, 1000);
+      }
+
+      // WhatsApp booking function
+      document
+        .getElementById("btnWhatsApp")
+        .addEventListener("click", function () {
+          const nama = document.getElementById("nama").value;
+          const whatsapp = document.getElementById("whatsapp").value;
+          const checkin = document.getElementById("checkin").value;
+          const durasi = document.getElementById("durasi").value;
+          const tipeKamar = document.getElementById("tipeKamar").value;
+          const roomType = document.getElementById("tipeKamar");
+          const selectedOption = roomType.options[roomType.selectedIndex];
+          const pricePerMonth = selectedOption
+            ? parseInt(selectedOption.getAttribute("data-price"))
+            : 0;
+
+          if (!nama || !whatsapp || !checkin || !durasi || !tipeKamar) {
+            alert("Harap lengkapi semua data pemesanan!");
+            return;
+          }
+
+          // Hitung total biaya dan DP
+          const totalCost = durasi * pricePerMonth;
+          const dpAmount = Math.ceil(totalCost * 0.3);
+
+          // Format tanggal
+          const formatDate = (dateString) => {
+            const options = { day: "numeric", month: "long", year: "numeric" };
+            return new Date(dateString).toLocaleDateString("id-ID", options);
+          };
+
+          const formattedCheckin = formatDate(checkin);
+
+          // Pesan untuk WhatsApp
+          const message = `Halo Admin, saya ingin memesan kamar di Homestay Pondok Indah Kawaluyaan dengan detail sebagai berikut:
+            
+Nama: ${nama}
+Nomor WhatsApp: ${whatsapp}
+Tanggal Mulai Sewa: ${formattedCheckin}
+Durasi Sewa: ${durasi} bulan
+Tipe Kamar: ${tipeKamar}
+Harga per Bulan: ${formatRupiah(pricePerMonth)}
+Total Biaya: ${formatRupiah(totalCost)}
+DP (30%) yang harus dibayar: ${formatRupiah(dpAmount)}
+
+Saya sudah membaca informasi bahwa saya harus melakukan transfer DP dalam waktu 10 MENIT dan mengirimkan bukti pembayaran via WhatsApp. Jika tidak, pemesanan akan dibatalkan.
+
+Saya akan segera melakukan transfer ke rekening:
+Bank BNI (Bank Negara Indonesia) 3010196012 (Tati Sumiarti)
+
+Terima kasih.`;
+
+          // Encode pesan untuk URL
+          const encodedMessage = encodeURIComponent(message);
+
+          // Buka WhatsApp
+          window.open(
+            `https://wa.me/6282114241733?text=${encodedMessage}`,
+            "_blank"
+          );
+
+          // Mulai timer pembayaran
+          startPaymentTimer();
+        });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
