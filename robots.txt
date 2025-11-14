@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://homestay-pondok-indah-kawaluyaan-bd.vercel.app/sitemap.xml
